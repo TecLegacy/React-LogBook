@@ -1,14 +1,11 @@
-import Herp from './components/hero/Herp';
+import AddUser from './components/project/add-user/AddUser';
 
 function App() {
-  const x = false;
-  if (x) {
-    return <div> hello</div>;
-  }
-
   return (
     <>
-      <Herp />
+      <div className={` m-auto mt-32 h-full   w-5/6 p-6 `}>
+        <AddUser />
+      </div>
     </>
   );
 }
