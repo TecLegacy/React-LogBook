@@ -31,6 +31,11 @@ const AddUser = () => {
   const erroHandler = () => {
     setErrorModal(false);
   };
+
+  // const edited = (id) => {
+  //   const newList = userList.filter((c, i) => i !== id);
+  //   // setUserList(newList);
+  // };
   return (
     <>
       {errorModal ? (
