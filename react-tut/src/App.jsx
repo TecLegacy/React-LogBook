@@ -1,4 +1,5 @@
 import AddUser from './components/project/add-user/AddUser';
+import ErrorModal from './components/project/errorModal/ErrorModal';
 
 function App() {
   return (

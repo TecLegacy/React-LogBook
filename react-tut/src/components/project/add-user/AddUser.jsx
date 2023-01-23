@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import Card from '../layout/Card';
 import UserList from '../list/UserList';
 import { createPortal } from 'react-dom';
+import ErrorModal from '../errorModal/ErrorModal';
 
 const AddUser = () => {
   const userRef = useRef(null);
@@ -33,7 +34,10 @@ const AddUser = () => {
   return (
     <>
       {errorModal ? (
-        createPortal(<div></div>, document.getElementById('modal'))
+        createPortal(
+          <ErrorModal setErrorModal={setErrorModal} />,
+          document.getElementById('modal')
+        )
       ) : (
         <div>
           <Card>
