@@ -6,6 +6,7 @@ import path from 'path';
 export default defineConfig({
   plugins: [react()],
   resolve: {
-    alias: [{ find: '@', replacement: path.resolve(__dirname, 'src') }],
+    // Absolute path for projects using node module
+    alias: [{ find: '@', replacement: path.resolve(__dirname, 'src/') }],
   },
 });
