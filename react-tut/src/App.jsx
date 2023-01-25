@@ -3,6 +3,7 @@ import ErrorModal from './components/project/errorModal/ErrorModal';
 import LoginOut from '@/components/context/LoginOut';
 import Button from './UI/Button';
 import AuthProvider from '@/components/context/auth-context';
+import ForwardRef from '@/components/forward-ref/ForwardRef';
 
 function App() {
   return (
@@ -13,9 +14,12 @@ function App() {
       </div> */}
 
       {/* CONTEXT API */}
-      <AuthProvider>
+      {/* <AuthProvider>
         <LoginOut />
-      </AuthProvider>
+      </AuthProvider> */}
+
+      {/* FORWARD REF */}
+      <ForwardRef />
     </>
   );
 }
