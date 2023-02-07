@@ -4,10 +4,12 @@ import LoginOut from '@/components/context/LoginOut';
 import AuthProvider from '@/components/context/auth-context';
 import ForwardRef from '@/components/forward-ref/ForwardRef';
 import StarWarApi from './components/Api/StarWarApi';
-import { useEffect, useState } from 'react';
-
+import MouseMove from '@/react-beta/MouseMove';
 import Button from './UI/Button';
 import Film from './components/Api/Film';
+import { useEffect, useState } from 'react';
+import Counter from './react-redux/Counter';
+import { useSelector } from 'react-redux';
 
 function App() {
   const [data, setData] = useState(null);
@@ -15,8 +17,11 @@ function App() {
     console.log(data);
   };
 
+  const counter = useSelector((state) => state.counter);
   return (
     <>
+      {/* REACT_BETA */}
+      {/* <MouseMove /> */}
       {/*Userlist - ref, portal, ? ,state */}
       {/* <div className={` m-auto mt-32 h-full   w-5/6 p-6 `}>
         <AddUser />
@@ -31,14 +36,18 @@ function App() {
       {/* <ForwardRef /> */}
 
       {/* API */}
-      {/* <StarWarApi setData={setData} />
+      {/* <StarWarApi setData={setData} /> */}
 
-      <div>
-        <button onClick={showConsole}>click me</button>
-      </div> */}
+      {/* <div> */}
+      {/* <button onClick={showConsole}>click me</button> */}
+      {/* </div> */}
 
       {/* SHOW fetch data */}
-      <Film data={data} />
+      {/* <Film data={data} /> */}
+
+      {/* -------REDUX------------ */}
+      <h1>{counter}</h1>
+      <Counter />
     </>
   );
 }

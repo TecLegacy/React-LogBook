@@ -6,7 +6,17 @@ const StarWarApi = ({ setData }) => {
   const swaHandler = async () => {
     //STARWAR API
     try {
-      const response = await fetch('https://swapi.dev/api/films/');
+      // const response = await fetch('https://swapi.dev/api/films/');  //get
+      const response = await fetch(
+        'https://react-http-ea626-default-rtdb.asia-southeast1.firebasedatabase.app/movie.json',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify('hello'),
+        }
+      ); //POST to firebase
       if (!response.status) {
         console.log('Error');
       }
