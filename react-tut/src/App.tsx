@@ -20,8 +20,8 @@ const Router = createBrowserRouter([
     errorElement: <ErrorEle />, // Fallback error handling page
     children: [
       // Relative path
-      { path: '/', element: <Home /> },
-      { path: '/product', element: <Product /> },
+      { path: '', element: <Home /> },
+      { path: 'product', element: <Product /> },
     ],
   },
 ]);

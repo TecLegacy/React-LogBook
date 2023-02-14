@@ -1,0 +1,11 @@
+createBrowserRouter , RouterProvider , Route
+
+path, element , children :[], errorElement: , 
+
+NavLink - to , className(isActive) , end
+Link - to , className , relative-(default is route / set to "path" )
+Outlet - render children components in parent 
+absolute vs relative path = / , " " 
+
+
+useNavigate - programatic navigation 
