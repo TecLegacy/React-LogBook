@@ -1,12 +1,30 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Home from './pages/home/Home';
+import Home from '@/pages/home/Home';
+import ErrorEle from '@/pages/ErrorEle';
+import Product from '@/pages/Product';
+import Layout from '@/pages/Layout';
 
 interface UserObj {
   name: string;
   age: number;
 }
 
-const Router = createBrowserRouter([{ path: '/', element: <Home /> }]);
+const Router = createBrowserRouter([
+  // { path: '/', element: <Home /> },
+  // { path: '/product', element: <Product /> },
+
+  //# layout with RR
+  {
+    path: '/',
+    element: <Layout />,
+    errorElement: <ErrorEle />, // Fallback error handling page
+    children: [
+      // Relative path
+      { path: '/', element: <Home /> },
+      { path: '/product', element: <Product /> },
+    ],
+  },
+]);
 
 const App: React.FC = () => {
   return (
