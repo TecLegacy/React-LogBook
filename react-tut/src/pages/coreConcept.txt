@@ -1,4 +1,4 @@
-createBrowserRouter , RouterProvider , Route
+createBrowserRouter , createRoutesFromElements, RouterProvider , Route
 
 path, element , children :[], errorElement: , 
 
@@ -9,3 +9,4 @@ absolute vs relative path = / , " "
 
 
 useNavigate - programatic navigation 
+useParams

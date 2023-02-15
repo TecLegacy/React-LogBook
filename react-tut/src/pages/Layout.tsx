@@ -12,7 +12,7 @@ const Layout = (props: Props) => {
             <NavLink
               to="/"
               className={({ isActive }) => (isActive ? ' underline ' : '')}
-              end={true} // to match default path
+              end={true} // to match default
             >
               Home
             </NavLink>
@@ -23,6 +23,14 @@ const Layout = (props: Props) => {
               className={({ isActive }) => (isActive ? ' underline ' : '')}
             >
               Product
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/items/new"
+              className={({ isActive }) => (isActive ? ' underline ' : '')}
+            >
+              New Event
             </NavLink>
           </li>
         </ul>

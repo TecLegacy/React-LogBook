@@ -3,6 +3,9 @@ import Home from '@/pages/home/Home';
 import ErrorEle from '@/pages/ErrorEle';
 import Product from '@/pages/Product';
 import Layout from '@/pages/Layout';
+import Item from '@/pages/items/Item';
+import NewEventPage from '@/pages/NewEventPages';
+import EditEventPage from '@/pages/EditEventPages';
 
 interface UserObj {
   name: string;
@@ -22,6 +25,9 @@ const Router = createBrowserRouter([
       // Relative path
       { path: '', element: <Home /> },
       { path: 'product', element: <Product /> },
+      { path: 'items/:itemId', element: <Item /> }, //Dynamic and nested Routes
+      { path: 'items/new', element: <NewEventPage /> },
+      { path: 'items/:someId/edit', element: <EditEventPage /> },
     ],
   },
 ]);
