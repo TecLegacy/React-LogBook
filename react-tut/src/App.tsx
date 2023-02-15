@@ -24,10 +24,21 @@ const Router = createBrowserRouter([
     children: [
       // Relative path
       { path: '', element: <Home /> },
-      { path: 'product', element: <Product /> },
+      // { path: 'product', element: <Product /> ,},
       { path: 'items/:itemId', element: <Item /> }, //Dynamic and nested Routes
       { path: 'items/new', element: <NewEventPage /> },
       { path: 'items/:someId/edit', element: <EditEventPage /> },
+    ],
+  },
+  {
+    path: '/product',
+    errorElement: <ErrorEle />,
+    element: <Layout />,
+    children: [
+      {
+        index: true,
+        element: <Product />,
+      },
     ],
   },
 ]);
