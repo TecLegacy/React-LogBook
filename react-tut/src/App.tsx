@@ -6,6 +6,7 @@ import Layout from '@/pages/Layout';
 import Item from '@/pages/items/Item';
 import NewEventPage from '@/pages/NewEventPages';
 import EditEventPage from '@/pages/EditEventPages';
+import { starWarApi } from '@/pages/NewEventPages';
 
 interface UserObj {
   name: string;
@@ -30,41 +31,7 @@ const Router = createBrowserRouter([
       {
         path: 'items/new',
         element: <NewEventPage />,
-        loader: async () => {
-          const response = await fetch('https://swapi.dev/api/films');
-          try {
-            if (!response.ok) {
-              // Typescript conversion of code - Error method is of type string
-              // & response.status is type of number
-              throw new Error(response.status.toString());
-            }
-
-            const data = await response.json();
-
-            return data;
-          } catch (error: any) {
-            let errorMessage;
-            switch (error.message) {
-              case 'Failed to fetch':
-                errorMessage =
-                  'Unable to fetch data. Please check your internet connection.';
-                break;
-              case '404':
-                errorMessage = 'The user you requested does not exist.';
-                break;
-              case '500':
-                errorMessage = 'Server error. Please try again later.';
-                break;
-              default:
-                errorMessage = 'An error occurred. Please try again later.';
-                break;
-            }
-
-            throw new Error(errorMessage);
-          }
-
-          //
-        },
+        loader: starWarApi, // loading data
       },
       { path: 'items/:someId/edit', element: <EditEventPage /> },
     ],
