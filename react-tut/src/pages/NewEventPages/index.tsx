@@ -1,15 +1,23 @@
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigation } from 'react-router-dom';
 import StarWarData from './StarWarData';
 
 type Props = {};
 
 const NewEventPage = (props: Props) => {
+  // const navigation = useNavigation();
+  // let loading;
+  // if (navigation.state === 'loading') {
+  //   loading = true;
+  // }
+
   // accesing data with RR inbuilt hook
   const starWarData = useLoaderData();
   console.log('star war data');
   console.log(typeof starWarData);
   return (
     <>
+      {/* {loading && <p>Loading...</p>} */}
+
       <StarWarData onData={starWarData} />
     </>
   );
@@ -21,6 +29,7 @@ export default NewEventPage;
 //@ where you want to use data use loader in that component
 
 export const starWarApi = async () => {
+  // setTimeout(async () => {
   const response = await fetch('https://swapi.dev/api/films');
   try {
     if (!response.ok) {
@@ -52,4 +61,5 @@ export const starWarApi = async () => {
 
     throw new Error(errorMessage);
   }
+  // }, 2000);
 };
