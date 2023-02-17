@@ -7,6 +7,7 @@ const ErrorEle = (props: Props) => {
 
   const navigateHandler = (e) => {
     e.preventDefault();
+
     //Programatic Navigation
     navigate('/');
   };
