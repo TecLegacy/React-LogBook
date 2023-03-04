@@ -1,0 +1,75 @@
+	•  { createBrowserRouter , RouterProvider,Route } from 'react-router-dom'
+
+	//OBJECT BASED APPROCHED
+	Router =  createBrowerRouter   
+	=>  ( [ { path: '/' , element : <HomePage />  } ] ) 
+	
+	Return  <RouterProvider router= {Router} /> 
+
+	• Alternative way to define routes - > From Elements JSX approach
+	RouterDefinations =createRoutesFromElements( <Route> <Route path=' /home' element={compnent} />
+	</Route>)
+	Router =  createBrowerRouter  (RouterDefinations )
+	
+	
+	• Pass them to RouterProvider with router prop
+	<RouterProvider router ={Router} />
+	
+
+Links -> navigating between pages 
+
+*imp Link from react-router-dom
+*using anchor tag is not ideal for performance of react app - as it refreshes our SPA , it send request to server  
+*Link component renders an anchor tag under the hood so all the css styling should be target to a:hover{} , not Link:hover{}
+
+<Link to='/home' />
+Prevents browser deault for sending a new http request <- optimal way
+
+
+Error Page 
+
+errorElement:  <- add this attribute below path attribute when it will catch error
+
+
+NavLinks
+
+*show which which link is active with class styles 
+*not an regular className it takes anonymous function , destructres {isActive}
+Its a boolean 
+
+<NavLink to='/home' className={( { isActive}  )=>{isActive?"activeStyle" : "" } }
+
+End - >  use to avoid other path being active as a route start with " / "  <-275 udemy
+
+
+Navigating programatically
+
+useNavigate hook => navigate ( '/home')
+
+
+Dynamic Routes
+
+/product/:proId <= colon ke baad everything is dynamic 
+
+Params =useParams
+Params.proId
+
+
+///
+createBrowserRouter , createRoutesFromElements, RouterProvider , Route
+
+path, element , children :[], errorElement: , 
+
+NavLink - to , className(isActive) , end
+Link - to=".." (relative path hota hai ..) , className , relative-(default is route / set to "path" )
+Outlet - render children components in parent 
+absolute vs relative path = / , " " 
+
+
+useNavigate - programatic navigation 
+useParams
+
+
+
+//DATA FETCHING 
+loader: async() =>{}  - use to fetch data and provide them all copoments near level/ down level only

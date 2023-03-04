@@ -20,6 +20,8 @@ const ArticleList: React.FC = () => {
     const fetchData = async () => {
       const apiUrl =
         'https://techcrunch.com/wp-json/wp/v2/posts?per_page=20&context=embed';
+
+      // Setting loading state
       setIsLoading(true);
       try {
         const response = await axios.get(apiUrl);
@@ -51,7 +53,7 @@ const ArticleList: React.FC = () => {
       boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.1)',
     },
   };
-
+  // Conditonal rendering
   switch (true) {
     case isLoading:
       return (
@@ -63,15 +65,16 @@ const ArticleList: React.FC = () => {
     case isError:
       return (
         <div className="py-8 text-center">
-          <p className="text-lg text-red-600">
-            Error fetching data. Please try again later.
+          <p className="flex items-center justify-center gap-8 text-lg  text-blue-400">
+            <h1>Error!</h1>
+            Please try again later.
           </p>
         </div>
       );
     default:
       return (
         <div className="-mx-4 flex flex-wrap">
-          {articles.map((article, index) => (
+          {articles.map((newsArticle, index) => (
             <motion.div
               className="w-full p-4 md:w-1/2 lg:w-1/3"
               key={index}
@@ -81,25 +84,25 @@ const ArticleList: React.FC = () => {
               <div className="rounded-lg bg-white shadow-lg">
                 <img
                   className="w-full rounded-t-lg"
-                  src={article.image}
-                  alt={article.title}
+                  src={newsArticle.image}
+                  alt={newsArticle.title}
                 />
                 <div className="px-6 py-4">
                   <h2 className="mb-2 text-xl font-semibold">
-                    {article.title}
+                    {newsArticle.title}
                   </h2>
                   <p
                     className="mb-4 text-base text-gray-700"
-                    dangerouslySetInnerHTML={{ __html: article.excerpt }}
+                    dangerouslySetInnerHTML={{ __html: newsArticle.excerpt }}
                   />
                   <p className="text-sm text-gray-600">
-                    By {article.creator} on {article.date}
+                    By {newsArticle.creator} on {newsArticle.date}
                   </p>
                 </div>
                 <div className="px-6 py-4">
                   <a
-                    className="rounded bg-blue-500 py-2 px-4 font-bold text-white hover:bg-blue-700"
-                    href={article.link}
+                    className="rounded bg-blue-500 py-2 px-4 font-bold text-white hover:bg-blue-700 "
+                    href={newsArticle.link}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
